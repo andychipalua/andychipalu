@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+    {% include "head.html" %}
+
+    <body>
+        <div class='l-pageContainer pageContainer'>
+            {% include "header.html" %}
+            <div class = 'l-pageContent'>
+                {% block content %}
+                {% endblock %}
+            </div>
+
+            {% include "footer.html" %}
+        </div>
+    </body>
+</html>

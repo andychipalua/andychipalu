@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}    
+    <ul>
+    {% for category in menuList %}
+        <li>{{ category.display_name}}</li>
+    {% endfor %}
+    </ul>
+
+    <div>
+    {% for category in menuList %}
+        <div id='category-{{ category.id }}'>
+            {{ category.display_name}}
+            {% for menuItem in category.menu_set.all %}
+                <div class='menuItem'>
+                    {% if menuItem.has_combo %}
+                        {% for combo in menuItem.combo_set.all %}
+                        <div class='menuCombo'>
+                            <h4>COMBO ITEM</h4>
+                            <div> {{ combo.display_name }}</div>
+                            <div> {{ combo.detail }}</div>
+                            <div> {{ combo.price }}</div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                    <div class='menuItemImage'>
+                        <img src="{{ menuItem.display_images_url}}" />
+                    </div>
+                    <div class='menuItemName'>{{ menuItem.display_name}}</div>
+                    <div class='menuItemDetail'>{{ menuItem.detail}}</div>
+                    <div class='menuItemDetail'>{{ menuItem.price}}</div>
+
+                    
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+
+    </div>
+{% endblock content %}
