@@ -1,0 +1,1 @@
+Restaurant website with static pages and menu items.
